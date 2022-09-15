@@ -1,0 +1,12 @@
+const express=require('express')
+const server=express()
+const createManager=require('./controllers/createManager')
+const deleteManager=require('./controllers/deletemanger')
+const searchManager=require('./controllers/searchmanager')
+const bp=require('body-parser')
+server.use(bp.json())
+server.use('/',createManager)
+server.use('/',deleteManager)
+server.use('/',searchManager)
+
+server.listen(3001,()=>console.log('server started'))
